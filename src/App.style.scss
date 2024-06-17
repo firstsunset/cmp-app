@@ -5,10 +5,11 @@ body {
 
     > #root {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
         height: inherit;
         width: inherit;
+        background-color: #27272A;
+        color: #FFFFFF;
 
         > iframe {
             height: 100%;

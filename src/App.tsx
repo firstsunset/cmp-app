@@ -1,13 +1,30 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.style.scss'
+import Layout from './layouts/Layout'
+import { ThemeProvider, createTheme } from '@mui/material'
+
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#FFFFFF',
+    },
+    secondary: {
+      main: '#A1A1AA',
+    },
+  },
+});
 
 export function App() {
-    const params = Object.entries({
-        cc_load_policy: 0,
-        controls: 2,
-        fs: 0,
-        rel: 0,
-        showinfo: 0
-    }).map(([key, value]) => `${key}=${value}`).join('&')
 
-    return <iframe src={'https://youtube.com/embed/BNflNL40T_M?' + params} />
+    return (
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Layout />} >
+            
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    )
 }
